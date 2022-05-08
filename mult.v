@@ -1,10 +1,10 @@
 
 module mult (
-    input       clk_i,
-    input       rst_i,
+    input       clk,
+    input       reset,
     input [7:0] a_bi,
     input [7:0] b_bi,
-    input       start_i,
+    input       start,
     output      busy_o,
     output reg  [15:0] y_bo
 );
@@ -21,16 +21,16 @@ module mult (
     assign shifted_part_sum = part_sum << ctr;
     assign end_step = ( ctr == 3 'h7 );
     assign busy_o = state;
-    always @(posedge clk_i )
-        if ( rst_i ) begin
+    always @(posedge clk )
+        if ( reset ) begin
             ctr <= 0;
             part_res <= 0;
             y_bo <= 0;
             state <= IDLE;
         end else begin
             case ( state )
-                IDLE : begin
-                    if ( start_i ) begin
+                IDLE: begin
+                    if ( start ) begin
                         state <= WORK;
                         a <= a_bi;
                         b <= b_bi;

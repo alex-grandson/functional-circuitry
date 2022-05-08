@@ -17,11 +17,11 @@ module test (
     wire [15:0] out;
     
     mult uut(
-        .clk_i(clk_i), 
-        .rst_i(rst_i), 
+        .clk(clk_i), 
+        .reset(rst_i), 
         .a_bi(a_bi), 
         .b_bi(a_bi), 
-        .start_i(start_i), 
+        .start(start_i), 
         .busy_o(busy), 
         .y_bo(out)
     );

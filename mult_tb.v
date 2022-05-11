@@ -3,15 +3,15 @@
 
 module test (
 );
-    reg [7:0] a_bi;
+    reg [15:0] a_bi;
     // reg [7:0] b_bi = 8'b00001000;
 
     reg clk_i;
     reg rst_i;
     reg start_i;
 
-    reg [7:0] a;
-    reg [7:0] b;
+    reg [15:0] a;
+    reg [15:0] b;
 
     wire busy;
     wire [15:0] out;

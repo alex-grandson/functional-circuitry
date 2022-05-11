@@ -8,8 +8,8 @@ module adder_test();
     // reg rst_i;
     // reg start_i;
 
-    reg  [7:0]  a;
-    reg  [7:0]  b;
+    reg  [15:0]  a;
+    reg  [15:0]  b;
     wire [15:0] out;
 
     adder uut(.a(a), .b(b), .out(out));

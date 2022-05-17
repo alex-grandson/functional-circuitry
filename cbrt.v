@@ -1,11 +1,11 @@
 
-module cbrt(
+module cubic_root (
     input clk,
     input rst,
     input start,
     input [15:0] x_bi,
     output wire [1:0] busy,
-    output wire [7:0] mmm,
+    output wire [7:0] m_temp,
     output reg [7:0] i,
     output reg [15:0] out,
     output reg [15:0] res
@@ -16,11 +16,11 @@ localparam WORK = 2'h1;
 localparam WORK_IN_WORK = 2'h2;
 localparam WAIT_MULT = 2'h3;
  
-reg [1:0]state;
-reg [7:0] m;
-reg [15:0]x_b;
-reg [15:0] a;
-reg [15:0] b;
+reg [1:0]   state;
+reg [7:0]   m;
+reg [15:0]  x_b;
+reg [15:0]  a;
+reg [15:0]  b;
 
  
 wire [1:0] multi_busy;
@@ -29,7 +29,7 @@ reg start_mult;
  
  
 assign busy = state;
-assign mmm = m;
+assign m_temp = m;
 
 
 mult b_square_calc( 
@@ -98,9 +98,7 @@ always @(posedge clk)
                     state <= WORK_IN_WORK;               
                     res <= mult_out_res;
                 end
-                
             end
-
         endcase
     end
 endmodule

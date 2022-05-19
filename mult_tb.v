@@ -1,7 +1,7 @@
 // Testbench for mult.v
 `timescale 1ns/1ps
 
-module test (
+module mult_test (
 );
     reg [15:0] a_bi;
     // reg [7:0] b_bi = 8'b00001000;
@@ -29,8 +29,8 @@ module test (
     always #5 clk_i = ~clk_i;
 
     initial begin
-        $dumpfile("mult_tb.vcd");
-        $dumpvars(0, test);
+        $dumpfile("mult.vcd");
+        $dumpvars(0, mult_test);
 
         clk_i = 1'b0; rst_i = 1; start_i = 0;
         $display("       A                     OUT");

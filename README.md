@@ -1,11 +1,3 @@
-<!-- 
-    Authors:
-        Kutsenko Aleksei
-        Solovev Pavel
-    Group: 
-        P33312
-    
- -->
 # Functional circuitry
 
 ## Lab 2

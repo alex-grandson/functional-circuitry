@@ -6,7 +6,8 @@ module mult (
     input [15:0]         b_bi,
     input               start,
     output [1:0]        busy_o,
-    output reg  [15:0]  y_bo
+    output reg  [15:0]  y_bo,
+    output reg out_ready
 );
     localparam IDLE = 2'b0;
     localparam WORK = 2'b1;    
@@ -21,6 +22,10 @@ module mult (
     assign shifted_part_sum = part_sum << ctr;
     assign end_step = ( ctr == 3 'h7 );
     assign busy_o = state;
+
+    initial y_bo = 0;
+    initial out_ready = 0;
+
     always @(posedge clk )
         if ( reset ) begin
             ctr <= 0;

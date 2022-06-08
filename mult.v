@@ -2,12 +2,12 @@
 module mult (
     input               clk,
     input               reset,
+    input               start,
     input [15:0]         a_bi,
     input [15:0]         b_bi,
-    input               start,
-    output [1:0]        busy_o,
     output reg  [15:0]  y_bo,
-    output reg out_ready
+    output [1:0]        busy_o
+    // output reg out_ready
 );
     localparam IDLE = 2'b0;
     localparam WORK = 2'b1;    
@@ -24,7 +24,7 @@ module mult (
     assign busy_o = state;
 
     initial y_bo = 0;
-    initial out_ready = 0;
+    // initial out_ready = 0;
 
     always @(posedge clk )
         if ( reset ) begin
